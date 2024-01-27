@@ -1,8 +1,13 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { useContext } from "react";
+//import { MidiManagerContext } from "./Context";
 
 function App() {
+  //const MidiManager = useContext(MidiManagerContext);
+  // console.log("MidiManager from Context", MidiManager);
+
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">

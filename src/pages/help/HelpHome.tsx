@@ -1,4 +1,4 @@
-import { Button, Container, Row, Col, Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { useState } from "react";
 
 function HelpHome() {
@@ -14,49 +14,40 @@ function HelpHome() {
   }
 
   return (
-    <Container fluid="md">
-      <Row>
-        <Col>
-          Hulp
-          <div>
-            <h2>React Bootstrap</h2>
+    <>
+      Hulp
+      <div>
+        <h2>React Bootstrap</h2>
 
-            <Form>
-              <Form.Group
-                className="mb-3"
-                controlId="exampleForm.ControlInput1"
+        <Form>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Label>
+              Search React Bootstrap (
+              <a
+                href="https://react-bootstrap.netlify.app/docs/"
+                target="_blank"
               >
-                <Form.Label>
-                  Search React Bootstrap (
-                  <a
-                    href="https://react-bootstrap.netlify.app/docs/"
-                    target="_blank"
-                  >
-                    react-bootstrap
-                  </a>
-                  )
-                </Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Search React Bootstrap"
-                  value={reactBSSearchString}
-                  onChange={(e) => setReactBSSearchString(e.target.value)}
-                />
-              </Form.Group>
+                react-bootstrap
+              </a>
+              )
+            </Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Search React Bootstrap"
+              value={reactBSSearchString}
+              onChange={(e) => setReactBSSearchString(e.target.value)}
+            />
+          </Form.Group>
 
-              <Button onClick={searchReactBootstrap}>
-                Search React Bootstrap
-              </Button>
-            </Form>
-          </div>
-          <div>
-            <a href="https://icons.getbootstrap.com/" target="_blank">
-              icons
-            </a>
-          </div>
-        </Col>
-      </Row>
-    </Container>
+          <Button onClick={searchReactBootstrap}>Search React Bootstrap</Button>
+        </Form>
+      </div>
+      <div>
+        <a href="https://icons.getbootstrap.com/" target="_blank">
+          icons
+        </a>
+      </div>
+    </>
   );
 }
 export default HelpHome;

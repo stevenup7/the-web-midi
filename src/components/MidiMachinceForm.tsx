@@ -39,7 +39,7 @@ function MidiMachineForm({ midiMachine, onSave, onDelete }: Props) {
         <Col>
           <Form>
             <Form.Group controlId="machineName">
-              <Form.Label>Machine Name</Form.Label>
+              <Form.Label>Machine Name {machine.id}</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="eg. Elektron Digitakt"

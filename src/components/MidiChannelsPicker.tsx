@@ -16,7 +16,6 @@ function MidiChannelsPicker({ onChange, defaultValue }: ChannelPickerProps) {
       channelList.push(parseInt(channelNumber, 10));
     }
   }
-  //console.log(channelList);
 
   const [selectedChannels, setSelectedChannels] =
     useState<number[]>(channelList);
