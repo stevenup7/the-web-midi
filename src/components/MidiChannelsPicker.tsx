@@ -11,34 +11,32 @@ interface ChannelPickerProps {
 
 function MidiChannelsPicker({ onChange, defaultValue }: ChannelPickerProps) {
   let channelList: number[] = [];
+  let aliasList: { [channelNumber: number]: string } = {};
+
+  // load up the aliases and selected channels from config
   if (defaultValue) {
     for (const channelNumber in defaultValue) {
+      aliasList[channelNumber] = defaultValue[channelNumber];
       channelList.push(parseInt(channelNumber, 10));
     }
   }
 
-  const [selectedChannels, setSelectedChannels] =
-    useState<number[]>(channelList);
+  const [selectedChannels, setSelectedChannels] = useState([...channelList]);
 
-  const handleChannelChange = (channel: number) => {
+  const handleChannelChange = (channel: number, updatedAlias?: string) => {
     let newlist: number[];
-    if (channel === -1) {
+    if (updatedAlias) {
+      // we are just editing the alias not clicking a checkbox
       newlist = selectedChannels;
     } else if (selectedChannels.includes(channel)) {
       newlist = selectedChannels.filter((c) => c !== channel);
     } else {
       newlist = [...selectedChannels, channel];
     }
-    setSelectedChannels(newlist);
-    let aliasList: { [channelNumber: number]: string } = {};
-
-    newlist.map((channel: number) => {
-      let alias = document.getElementById(
-        `channel-alias-${channel}`
-      ) as HTMLInputElement;
-      aliasList[channel] = alias?.value;
-    });
-
+    setSelectedChannels([...newlist]);
+    if (updatedAlias) {
+      aliasList[channel] = updatedAlias;
+    }
     onChange(newlist, aliasList);
   };
 
@@ -67,14 +65,10 @@ function MidiChannelsPicker({ onChange, defaultValue }: ChannelPickerProps) {
                   htmlSize={20}
                   placeholder="eg. Kick"
                   disabled={!selectedChannels.includes(index)}
-                  value={
-                    defaultValue
-                      ? defaultValue[index]
-                        ? defaultValue[index]
-                        : ""
-                      : ""
-                  }
-                  onChange={() => handleChannelChange(-1)}
+                  defaultValue={defaultValue ? defaultValue[index] : ""}
+                  onChange={(e) => {
+                    handleChannelChange(index, e.target.value);
+                  }}
                 />
               </div>
             </Col>

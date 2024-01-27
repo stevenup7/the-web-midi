@@ -74,7 +74,7 @@ function MidiMachineForm({ midiMachine, onSave, onDelete }: Props) {
                   channels: number[],
                   channelAliases: { [channelNumber: number]: string }
                 ) => {
-                  console.log(channels, channelAliases);
+                  console.log("updating channels", channels, channelAliases);
                   updateProps({
                     channelAliases: channelAliases,
                     channels: channels,
