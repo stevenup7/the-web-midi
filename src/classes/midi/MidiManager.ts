@@ -117,6 +117,7 @@ class MidiManager {
   onMIDISuccess(midiAccess: MIDIAccess): void {
     this.midiAccess = midiAccess;
     this.getInputsAndOutputs();
+
     this.eventHandlers.midiSuccess.forEach((cb) => {
       cb();
     }, this);

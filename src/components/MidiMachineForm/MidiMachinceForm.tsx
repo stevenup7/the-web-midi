@@ -1,9 +1,10 @@
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import MidiMachine from "../classes/midi/MidiMachine";
-import MidiChannelsPicker from "./MidiChannelsPicker";
-import ShowHideSection from "./ShowHideSection";
+import MidiMachine from "../../classes/midi/MidiMachine";
+import MidiChannelsPicker from "../MidiFormControls/MidiChannelsPicker";
+import ShowHideSection from "../ShowHideSection";
 import { useState } from "react";
 import "./MidiMachineForm.css";
+import MidiConnectionPicker from "../MidiFormControls/MidiConnectionPicker";
 
 interface Props {
   midiMachine: MidiMachine;
@@ -68,6 +69,16 @@ function MidiMachineForm({ midiMachine, onSave, onDelete }: Props) {
               </Form.Select>
             </Form.Group>
 
+            <MidiConnectionPicker
+              machine={machine}
+              onChange={(port: string, direction: string) => {
+                if (direction === "in") {
+                  updateProps({ midiInPort: port });
+                } else {
+                  updateProps({ midiOutPort: port });
+                }
+              }}
+            ></MidiConnectionPicker>
             <ShowHideSection title="MIDI Channels">
               <MidiChannelsPicker
                 onChange={(

@@ -1,6 +1,6 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { PlusCircle } from "react-bootstrap-icons";
-import MidiMachineForm from "../../components/MidiMachinceForm";
+import MidiMachineForm from "../../components/MidiMachineForm/MidiMachinceForm";
 import MidiMachine from "../../classes/midi/MidiMachine";
 import { useContext, useState } from "react";
 import ConfigManager from "../../classes/config/ConfigManager";
@@ -8,6 +8,7 @@ import { MidiManagerContext } from "../../Context";
 function MidiConfig() {
   let configManager: ConfigManager = new ConfigManager();
   let initialMachines: MidiMachine[] = [];
+
   const MidiManager = useContext(MidiManagerContext);
 
   MidiManager.addEventListener("midiSuccess", () => {
@@ -34,8 +35,6 @@ function MidiConfig() {
     configManager.saveObject("machine." + machine.id, machine);
   };
   const deleteMachine = (machine: MidiMachine) => {
-    //console.log("Deleting Machine", machine);
-
     configManager.deleteObject("machine." + machine.id);
     let newMachineList = machineList.filter((m) => m.id !== machine.id);
     setMachineList([...newMachineList]);
@@ -47,7 +46,7 @@ function MidiConfig() {
   };
   const addMachine = () => {
     machineList.push(
-      new MidiMachine(getFreeMachineId(), "New ", "testport", [], 15, {})
+      new MidiMachine(getFreeMachineId(), "New ", "", "", [], 15, {})
     );
     setMachineList([...machineList]);
   };
