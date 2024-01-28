@@ -17,6 +17,7 @@ function App() {
               src="/midi-white.svg"
               alt="midi logo"
               className="d-inline-block align-text-top"
+              id="midi-icon-logo"
             />
             &nbsp; The Web Midi
           </Navbar.Brand>

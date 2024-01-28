@@ -14,13 +14,13 @@ interface MidiPortCheckboxItem {
 type EVENT_TYPES = "beat" | "midiSuccess" | "midiFail";
 
 // The main MIDI manager class manages midi ports and midi messages.
+//
 class MidiManager {
   midiAccess: MIDIAccess | undefined;
   inPorts: { [key: string]: MidiPort };
   outPorts: { [key: string]: MidiPort };
   activeOutPorts: { [key: string]: MIDIOutput };
   clock: MidiClock;
-  fxChannels: number[];
   midiMachines: MidiMachine[];
   eventHandlers: {
     [key in EVENT_TYPES]: ((...args: any[]) => any)[];
@@ -35,7 +35,6 @@ class MidiManager {
     this.inPorts = {};
     this.outPorts = {};
     this.activeOutPorts = {};
-    this.fxChannels = [];
     this.midiMachines = [];
     this.eventHandlers = { beat: [], midiSuccess: [], midiFail: [] };
 
@@ -81,33 +80,21 @@ class MidiManager {
   }
 
   /**
-   * TODO: move this to the midi machine class.
-   * Adds an FX channel to the list of FX channels.
-   * @param channel The channel number.
-   */
-  addFXChannel(channel: number) {
-    if (this.fxChannels.indexOf(channel) == -1) {
-      this.fxChannels.push(channel);
-    }
-  }
-
-  /**
    * Adds a MIDI machine to the list of MIDI machines.
    * @param machine The MIDI machine to add.
    */
   addMachine(machine: MidiMachine) {
-    this.midiMachines.push(machine);
-  }
+    if (machine.midiInPort in this.inPorts) {
+      console.log("listening to ", machine.midiInPort);
 
-  /**
-   * Removes an FX channel from the list of FX channels.
-   * @param channel The channel number.
-   */
-  removeFXChannel(channel: number) {
-    const idx = this.fxChannels.indexOf(channel);
-    if (idx > -1) {
-      this.fxChannels.splice(idx, 1);
+      this.listenToPort(machine.midiInPort);
+    } else {
+      console.log("port not in port list ", machine.midiInPort);
     }
+    if (machine.midiOutPort in this.outPorts) {
+      // TODO: ummm
+    }
+    this.midiMachines.push(machine);
   }
 
   /**
@@ -236,9 +223,11 @@ class MidiManager {
    * @param ccValue The control change value.
    */
   sendFXMessage(ccNumber: number, ccValue: number) {
-    for (let i = 0; i < this.fxChannels.length; i++) {
-      this.sendCC(this.fxChannels[i], ccNumber, ccValue);
-    }
+    console.log(ccNumber, ccValue);
+
+    // for (let i = 0; i < this.fxChannels.length; i++) {
+    //   this.sendCC(this.fxChannels[i], ccNumber, ccValue);
+    //}
   }
 
   /**

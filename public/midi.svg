@@ -40,14 +40,14 @@
      inkscape:groupmode="layer"
      id="layer1">
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:3;stroke-dasharray:none"
+       style="fill:none;stroke:#010101;stroke-width:2.86298;stroke-dasharray:none;stroke-opacity:1"
        id="path1"
        cx="16"
        cy="16"
-       ry="15"
-       rx="15" />
+       ry="14.422891"
+       rx="14.207684" />
     <rect
-       style="fill:#000000;stroke:#000000;stroke-width:3"
+       style="fill:#000000;stroke:#000000;stroke-width:3;stroke-opacity:1"
        id="rect6"
        width="1"
        height="5"
@@ -56,30 +56,30 @@
     <g
        id="g6"
        transform="matrix(0.86119391,0,0,0.88018905,3.193906,1.3740437)"
-       style="stroke-width:0.86143558;stroke-dasharray:none">
+       style="stroke-width:0.68914847;stroke-dasharray:none;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1">
       <ellipse
-         style="fill:#000000;stroke:#000000;stroke-width:0.86143558;stroke-dasharray:none"
+         style="fill:#000000;stroke:#000000;stroke-width:0.68914847;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
          id="path1-8-6"
          cx="14.870163"
          cy="6.6309347"
          rx="1.8932685"
          ry="1.8624532" />
       <ellipse
-         style="fill:#000000;stroke:#000000;stroke-width:0.86143558;stroke-dasharray:none"
+         style="fill:#000000;stroke:#000000;stroke-width:0.68914847;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
          id="ellipse1"
          cx="4.7786889"
          cy="16.305927"
          rx="1.8932685"
          ry="1.8624532" />
       <ellipse
-         style="fill:#000000;stroke:#000000;stroke-width:0.86143558;stroke-dasharray:none"
+         style="fill:#000000;stroke:#000000;stroke-width:0.68914847;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
          id="ellipse1-4"
          cx="24.961637"
          cy="16.305927"
          rx="1.8932685"
          ry="1.8624532" />
       <ellipse
-         style="fill:#000000;stroke:#000000;stroke-width:0.8618181;stroke-dasharray:none"
+         style="fill:#000000;stroke:#000000;stroke-width:0.68945448;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
          id="ellipse3"
          cx="22.080917"
          cy="-8.4047165"
@@ -87,7 +87,7 @@
          ry="1.9029622"
          transform="matrix(0.72184537,0.69205438,-0.72184537,0.69205438,0,0)" />
       <ellipse
-         style="fill:#000000;stroke:#000000;stroke-width:0.8618181;stroke-dasharray:none"
+         style="fill:#000000;stroke:#000000;stroke-width:0.68945448;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
          id="ellipse4"
          cx="12.19549"
          cy="1.4807112"

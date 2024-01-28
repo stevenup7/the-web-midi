@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { OCTAVE } from "../Midi/MusicConstants";
+import { OCTAVE } from "../../classes/midi/MusicConstants";
 
 import "./paino-keyboard.css";
 import PainoKey from "./PainoKeyboardKey";
-import MidiChannelSelector from "./MidiChannelSelector";
 
 interface KeyboardProps {
   onDown: (channel: number, note: string) => void;
@@ -34,14 +33,6 @@ const Keyboard = ({ onDown, onUp }: KeyboardProps) => {
   };
   return (
     <>
-      <div className="keyboard-config">
-        <MidiChannelSelector
-          allowMultiple={false}
-          defaultValues={-1}
-          onSelectionChange={handleChannelSelection}
-        ></MidiChannelSelector>
-      </div>
-
       <div
         className="keyboard-wrapper"
         onContextMenu={handleContextMenu}

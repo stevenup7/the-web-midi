@@ -19,7 +19,6 @@ function MidiConfig() {
 
   // get the current config for midi machines from the config manager
   const initialMachineJSON = configManager.getConfig("machine");
-  //console.log("MidiConfig Component");
 
   // load up the machines from config
   for (const m in initialMachineJSON) {
