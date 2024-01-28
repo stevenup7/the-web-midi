@@ -1,0 +1,24 @@
+.BPM-display {
+    margin-bottom: 1em;
+}
+.BPM-display div {
+    border: 1px solid #883;
+    background-color: #443;
+    color: #883;
+    width: 2em;
+    height: 2em;
+    margin: .2em;
+    text-align: center;
+    float: left;    
+    font-weight: 600;
+    vertical-align: middle;
+    line-height: 1.8em;
+}
+
+.BPM-display div.BPM-quarter {
+    border: 1px solid #833;
+    color: #C66; 
+    background-color: #433 ;
+}
+
+
