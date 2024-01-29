@@ -1,5 +1,6 @@
 import { Button, Form } from "react-bootstrap";
 import { useState } from "react";
+import App from "../../App";
 
 function HelpHome() {
   const [reactBSSearchString, setReactBSSearchString] = useState("");
@@ -15,6 +16,7 @@ function HelpHome() {
 
   return (
     <>
+      <App></App>
       Hulp
       <div>
         <h2>React Bootstrap</h2>

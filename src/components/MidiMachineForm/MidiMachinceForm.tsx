@@ -1,7 +1,7 @@
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import MidiMachine from "../../classes/midi/MidiMachine";
 import MidiChannelsPicker from "../MidiFormControls/MidiChannelsPicker";
-import ShowHideSection from "../ShowHideSection";
+import ShowHideSection from "../DisplayHelpers/ShowHideSection";
 import { useState } from "react";
 import "./MidiMachineForm.css";
 import MidiConnectionPicker from "../MidiFormControls/MidiConnectionPicker";

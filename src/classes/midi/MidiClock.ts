@@ -23,7 +23,7 @@ class MidiClock {
   beatCounter: number;
   clockCounter: number;
   running: boolean;
-  timerInterval: number;
+  timerInterval: NodeJS.Timeout | undefined;
   constructor(midiManager: MidiManager) {
     this.midiManager = midiManager;
     // bpm and clock details TODO move to seperate controller
@@ -32,7 +32,7 @@ class MidiClock {
     this.beatCounter = 0;
     this.clockCounter = 0;
     this.running = false;
-    this.timerInterval = -1;
+    this.timerInterval = undefined;
   }
 
   // TODO: this is a very hacky solution
@@ -73,10 +73,9 @@ class MidiClock {
       60 / ((totalInterval / (this.clockTimes.length - 1) / 1000) * 24); // in seconds
     this.bpm = Math.round(clockSpeed * 10) / 10;
     this.clockCounter++;
-
     if (this.clockCounter % 6 === 0 && this.clockCounter > 0) {
       this.beatCounter++;
-      this.midiManager.beatHandler(this.beatCounter);
+      this.midiManager.beatHandler(this.beatCounter, this.bpm);
     }
   }
 }

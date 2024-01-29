@@ -1,13 +1,9 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
-import { useContext } from "react";
-//import { MidiManagerContext } from "./Context";
+import { Link } from "react-router-dom";
 
 function App() {
-  //const MidiManager = useContext(MidiManagerContext);
-  // console.log("MidiManager from Context", MidiManager);
-
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
@@ -24,19 +20,24 @@ function App() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/config">Config</Nav.Link>
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
+              <Link to="/config" className="nav-link">
+                Config
+              </Link>
               <NavDropdown title="Help" id="basic-nav-dropdown">
-                <NavDropdown.Item href="/help/home">Home</NavDropdown.Item>
-                <NavDropdown.Item href="/help/midi">
-                  Midi Basics
-                </NavDropdown.Item>
+                <Link to="/help/home" className="dropdown-item">
+                  Home
+                </Link>
+
+                <Link to="/help/midi" className="dropdown-item">
+                  Basics
+                </Link>
+                <NavDropdown.Divider />
+
                 <NavDropdown.Item href="/help/config/3.3">
                   Configuration
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="/brokendedlink/3.4">
-                  404 page
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>

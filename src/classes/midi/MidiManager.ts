@@ -73,9 +73,9 @@ class MidiManager {
   /**
    * @param beatCount The current beat count.
    */
-  beatHandler(beatCount: number) {
+  beatHandler(beatCount: number, bpm: number) {
     this.eventHandlers.beat.forEach((cb) => {
-      cb(beatCount);
+      cb(beatCount, bpm);
     }, this);
   }
 

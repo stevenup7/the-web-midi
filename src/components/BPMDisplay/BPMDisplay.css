@@ -1,5 +1,5 @@
 .BPM-display {
-    margin-bottom: 1em;
+    margin-bottom: 3em;
 }
 .BPM-display div {
     border: 1px solid #883;
@@ -13,6 +13,11 @@
     font-weight: 600;
     vertical-align: middle;
     line-height: 1.8em;
+}
+div .BPM-display div.active-beat {
+    border: 1px solid #383;
+    color: #6C6;
+    background-color: #343;
 }
 
 .BPM-display div.BPM-quarter {

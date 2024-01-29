@@ -5,6 +5,7 @@ import MidiMachine from "../../classes/midi/MidiMachine";
 import ConfigManager from "../../classes/config/ConfigManager";
 import Keyboard from "../../components/PainoKeyboard/PainoKeyboard";
 import BPMDisplay from "../../components/BPMDisplay/BPMDisplay";
+import App from "../../App";
 
 function MidiController() {
   // connect the midiManager up to the midi machines from the config
@@ -27,16 +28,9 @@ function MidiController() {
 
   return (
     <>
+      <App></App>
+
       <Container fluid="md">
-        <Row>
-          <Col>
-            <div id="controller-main">
-              <h1>Main Controller Page</h1>
-              <p>This is it.</p>
-              <p>Add rows and columns of controls as you wish</p>
-            </div>
-          </Col>
-        </Row>
         <Row>
           <Col>
             <BPMDisplay></BPMDisplay>

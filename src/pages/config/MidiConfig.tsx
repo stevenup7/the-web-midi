@@ -5,6 +5,7 @@ import MidiMachine from "../../classes/midi/MidiMachine";
 import { useContext, useState } from "react";
 import ConfigManager from "../../classes/config/ConfigManager";
 import { MidiManagerContext } from "../../Context";
+import App from "../../App";
 function MidiConfig() {
   let configManager: ConfigManager = new ConfigManager();
   let initialMachines: MidiMachine[] = [];
@@ -50,42 +51,48 @@ function MidiConfig() {
     setMachineList([...machineList]);
   };
   return (
-    <Container fluid="md">
-      <Row>
-        <Col>
-          <h2>Machines</h2>
-          {machineList.map((machine, index) => (
-            <div key={index}>
-              {" "}
-              <MidiMachineForm
-                midiMachine={machine}
-                onSave={(m) => {
-                  saveMachine(m);
-                }}
-                onDelete={(m) => {
-                  console.log("dm");
+    <>
+      <App></App>
+      <Container fluid="md">
+        <Row>
+          <Col>
+            <h2>Machines</h2>
+            {machineList.map((machine, index) => (
+              <div key={index}>
+                {" "}
+                <MidiMachineForm
+                  midiMachine={machine}
+                  onSave={(m) => {
+                    saveMachine(m);
+                  }}
+                  onDelete={(m) => {
+                    console.log("dm");
 
-                  deleteMachine(m);
-                }}
-              ></MidiMachineForm>
-            </div>
-          ))}
+                    deleteMachine(m);
+                  }}
+                ></MidiMachineForm>
+              </div>
+            ))}
 
-          <Button
-            variant="secondary"
-            onClick={() => {
-              addMachine();
-            }}
-          >
-            <PlusCircle /> Add New Machine
-          </Button>
-        </Col>
-        <Col>
-          <h2>Other Config</h2>
-          <p>This is where all the other configuration options will go</p>
-        </Col>
-      </Row>
-    </Container>
+            <Button
+              variant="secondary"
+              onClick={() => {
+                addMachine();
+              }}
+            >
+              <PlusCircle /> Add New Machine
+            </Button>
+          </Col>
+          <Col>
+            <h2>Other Config</h2>
+            <p>This is where all the other configuration options will go</p>
+            <p>[ ] Provide Midi Clock </p>
+            <p>Listen to Midi Clock from [machine name^]</p>
+            <p>Default keyboard style [ piano | octave | autochords] </p>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 }
 export default MidiConfig;
