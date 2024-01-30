@@ -1,6 +1,6 @@
 .play-controls .play-control {
     stroke: 1px solid #883;
-    fill: #443;
+    fill: #883;
     width: 2em;
     height: 2em;
     margin: .2em;
@@ -8,8 +8,12 @@
     float: left;
 }
 .play-controls .play-control:hover {
-    fill: #884;
+    fill: #CC6;
 }
 .play-controls {
     margin-bottom: 3em;
+}
+
+.hidden {
+    display: none;
 }

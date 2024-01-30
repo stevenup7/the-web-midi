@@ -64,6 +64,7 @@ class MidiClock {
     this.midiManager.sendRealTimeMessage(
       new MidiMessage().makePlayControls("stop")
     );
+    this.midiManager.beatHandler(0, this.bpm);
     this.running = false;
   }
 

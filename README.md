@@ -9,3 +9,5 @@
 - assigner control for midi controls
   - assign machine - port for notes
   - machine - cc (min, max) for cc
+- youtube vidoe showing features
+- more testing - lots more testing
