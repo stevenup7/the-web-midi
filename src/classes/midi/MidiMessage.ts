@@ -5,9 +5,6 @@ const NOTE_OFF = 128; // 1000nnnn
 const CC_SEND = 176; // 1011nnnn
 
 class MidiMessage {
-  constructor() {}
-  // TODO velocity
-
   ccValue(channel: number, ccNumber: number, ccValue: number) {
     return [CC_SEND | channel, ccNumber, ccValue];
   }
