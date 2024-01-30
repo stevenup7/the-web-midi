@@ -1,0 +1,15 @@
+.play-controls .play-control {
+    stroke: 1px solid #883;
+    fill: #443;
+    width: 2em;
+    height: 2em;
+    margin: .2em;
+    text-align: center;
+    float: left;
+}
+.play-controls .play-control:hover {
+    fill: #884;
+}
+.play-controls {
+    margin-bottom: 3em;
+}

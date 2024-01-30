@@ -38,6 +38,19 @@ class MidiMessage {
   noteOff(channel: number, note: string): number[] {
     return this.makeNote(NOTE_OFF, channel, note);
   }
+
+  makeClockMessage(): number[] {
+    return [248];
+  }
+  makePlayControls(message: "start" | "continue" | "stop" | "pause"): number[] {
+    const messages = {
+      start: 250,
+      continue: 251,
+      stop: 252,
+      pause: 254,
+    };
+    return [messages[message]];
+  }
 }
 
 export default MidiMessage;

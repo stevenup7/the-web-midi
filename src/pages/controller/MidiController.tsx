@@ -1,10 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { MidiManagerContext } from "../../Context";
 import MidiMachine from "../../classes/midi/MidiMachine";
 import ConfigManager from "../../classes/config/ConfigManager";
 import Keyboard from "../../components/PainoKeyboard/PainoKeyboard";
 import BPMDisplay from "../../components/BPMDisplay/BPMDisplay";
+import PlayControls from "../../components/PlayControls/PlayControls";
 import App from "../../App";
 
 function MidiController() {
@@ -23,8 +24,6 @@ function MidiController() {
       MidiManager.addMachine(newMachine);
     }
   });
-  // initialise the machines from the list
-  const [machineList, setMachineList] = useState(initialMachines);
 
   return (
     <>
@@ -34,6 +33,11 @@ function MidiController() {
         <Row>
           <Col>
             <BPMDisplay></BPMDisplay>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <PlayControls></PlayControls>
           </Col>
         </Row>
 

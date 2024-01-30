@@ -1,4 +1,5 @@
 import MidiManager from "./MidiManager";
+import MidiMessage from "./MidiMessage";
 
 /* MidiClock Object 
 
@@ -36,12 +37,16 @@ class MidiClock {
   }
 
   // TODO: this is a very hacky solution
-  // needs accurate timing adn need to send out a clock signal
+  // needs accurate timing and need to send out a clock signal
   startGenerating() {
+    let midiMessage = new MidiMessage();
+    let clockMessage = midiMessage.makeClockMessage();
     this.start();
+    this.midiManager.sendRealTimeMessage(midiMessage.makePlayControls("start"));
     clearInterval(this.timerInterval);
     this.timerInterval = setInterval(() => {
       this.tick();
+      this.midiManager.sendRealTimeMessage(clockMessage);
       // stop if this.stop is called
       if (this.running == false) {
         clearInterval(this.timerInterval);
@@ -56,6 +61,9 @@ class MidiClock {
     this.clockCounter = 0;
   }
   stop() {
+    this.midiManager.sendRealTimeMessage(
+      new MidiMessage().makePlayControls("stop")
+    );
     this.running = false;
   }
 

@@ -92,7 +92,8 @@ class MidiManager {
       console.log("port not in port list ", machine.midiInPort);
     }
     if (machine.midiOutPort in this.outPorts) {
-      // TODO: ummm
+      // TODO: this
+      this.listenToPort(machine.midiOutPort);
     }
     this.midiMachines.push(machine);
   }
@@ -211,7 +212,6 @@ class MidiManager {
   sendToAll(thingToSend: any) {
     for (const port in this.activeOutPorts) {
       const op = this.activeOutPorts[port];
-      console.log(thingToSend);
 
       op.send(thingToSend); //omitting the timestamp means send immediately.
     }
@@ -224,12 +224,15 @@ class MidiManager {
    */
   sendFXMessage(ccNumber: number, ccValue: number) {
     console.log(ccNumber, ccValue);
-
+    throw "not implemented";
     // for (let i = 0; i < this.fxChannels.length; i++) {
     //   this.sendCC(this.fxChannels[i], ccNumber, ccValue);
     //}
   }
 
+  sendRealTimeMessage(message: number[]) {
+    this.sendToAll(message);
+  }
   /**
    * Sends a control change message to all active output ports.
    * @param channel The MIDI channel number.
