@@ -1,4 +1,15 @@
 #midi-icon-logo {
-    height: 1.75rem;
-    width: 1.75rem;
+  height: 1.75rem;
+  width: 1.75rem;
+}
+
+:root {
+  --main-background-color: #443;
+  --main-foreground-color: #663;
+
+  --highlight-background-color: #343;
+  --highlight-foreground-color: #363;
+
+  --danger-background-color: #433;
+  --danger-foreground-color: #633;
 }

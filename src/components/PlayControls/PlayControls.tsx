@@ -26,6 +26,7 @@ function PlayControls() {
           height="2em"
           onClick={sendPlay}
         />
+
         <PauseBtnFill
           className={"play-control" + (isPlaying ? "" : " hidden")}
           width="2em"

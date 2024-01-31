@@ -2,7 +2,7 @@
 
 export default class ConfigManager {
   configLocation = "__config__";
-  config: any; //TODO better type ?
+  config: any;
 
   constructor(configLocation?: string) {
     if (configLocation) this.configLocation = configLocation;

@@ -3,6 +3,7 @@ import MidiPort, { MidiPortDirection } from "./MidiPort";
 import MidiClock from "./MidiClock";
 import MidiMessage from "./MidiMessage";
 import MidiMachine from "./MidiMachine";
+import ConfigManager from "../config/ConfigManager";
 
 // A checkbox item for a MIDI port returned by the list function in the MIDI manager.
 interface MidiPortCheckboxItem {
@@ -29,7 +30,7 @@ class MidiManager {
    * new MIDI manager instance.
    * @param successCallback The success callback function.
    */
-  constructor(successCallback: () => void, failCallback?: () => void) {
+  constructor(successCallback: () => void, failCallback: () => void) {
     this.midiAccess = undefined;
     this.clock = new MidiClock(this);
     this.inPorts = {};
@@ -39,35 +40,72 @@ class MidiManager {
     this.eventHandlers = { beat: [], midiSuccess: [], midiFail: [] };
 
     this.addEventListener("midiSuccess", successCallback);
-    if (failCallback) {
-      this.addEventListener("midiFail", failCallback);
+    this.addEventListener("midiFail", failCallback);
+
+    navigator.requestMIDIAccess().then((midiAccess) => {
+      console.log("midi access granted");
+      this.onMIDISuccess(midiAccess);
+    }, this.onMIDIFailure.bind(this));
+  }
+  /**
+   * Handles a successful MIDI access request.
+   * @param midiAccess The MIDI access object.
+   */
+  onMIDISuccess(midiAccess: MIDIAccess): void {
+    this.midiAccess = midiAccess;
+
+    this.getInputsAndOutputs();
+    this.reloadConfig();
+    this.eventHandlers.midiSuccess.forEach((cb) => {
+      cb();
+    }, this);
+  }
+
+  /**
+   * Handles MIDI failure by logging an error message to the console.
+   * occurs when the browser does not support MIDI.
+   * @param msg - The error provided by the browser.
+   */
+  onMIDIFailure(msg: string) {
+    // TODO: Add callback
+    console.error(`Failed to get MIDI access - ${msg}`);
+  }
+
+  reloadConfig() {
+    const config = new ConfigManager();
+    console.log("reloading config");
+
+    // get the current config for midi machines from the config manager
+    const initialMachineJSON = config.getConfig("machine");
+    let initialMachines: MidiMachine[] = [];
+
+    // load up the machines from config
+    for (const m in initialMachineJSON) {
+      let newMachineJSON = initialMachineJSON[m];
+      let newMachine = MidiMachine.fromJSON(JSON.stringify(newMachineJSON));
+      initialMachines.push(newMachine);
+      this.addMachine(newMachine);
     }
-
-    /**
-     * Handles MIDI failure by logging an error message to the console.
-     * occurs when the browser does not support MIDI.
-     * @param msg - The error provided by the browser.
-     */
-    const onMIDIFailure = (msg: string) => {
-      // TODO: Add callback
-      console.error(`Failed to get MIDI access - ${msg}`);
-    };
-
-    navigator
-      .requestMIDIAccess()
-      .then(this.onMIDISuccess.bind(this), onMIDIFailure);
   }
 
   removeEventListener(event: string, callback: any) {
+    let handlerList = this.eventHandlers.midiFail;
     if (event === "beat") {
-      const idx = this.eventHandlers.beat.indexOf(callback);
-      if (idx > -1) {
-        this.eventHandlers.beat.splice(idx, 1);
-      }
+      handlerList = this.eventHandlers.beat;
+    } else if (event === "midiSuccess") {
+      handlerList = this.eventHandlers.midiSuccess;
+    }
+
+    const idx = handlerList.indexOf(callback);
+    if (idx > -1) {
+      handlerList.splice(idx, 1);
     }
   }
   addEventListener(event: EVENT_TYPES, callback: any) {
     this.eventHandlers[event].push(callback);
+
+    // if the event is midi success and we already have midi access, call the callback
+    if (event == "midiSuccess" && this.midiAccess != undefined) callback();
   }
 
   /**
@@ -98,19 +136,19 @@ class MidiManager {
     this.midiMachines.push(machine);
   }
 
-  /**
-   * Handles a successful MIDI access request.
-   * @param midiAccess The MIDI access object.
-   */
-  onMIDISuccess(midiAccess: MIDIAccess): void {
-    this.midiAccess = midiAccess;
-    this.getInputsAndOutputs();
-
-    this.eventHandlers.midiSuccess.forEach((cb) => {
-      cb();
-    }, this);
+  getMachieOnPort(port: string): MidiMachine {
+    let foundMachines = this.midiMachines.filter((machine) => {
+      if (machine.midiInPort == port || machine.midiOutPort == port) {
+        return true;
+      }
+      return false;
+    });
+    if (foundMachines.length > 0) {
+      return foundMachines[0];
+    } else {
+      throw new Error("No Machine on Port");
+    }
   }
-
   /**
    * Gets the list of MIDI inputs and outputs.
    */
@@ -260,11 +298,17 @@ class MidiManager {
    * @param channel The MIDI channel number.
    * @param note The note name including the octave eg C4
    */
-  noteDown(channel: number, note: string) {
+  noteDown(channel: number, note: string, machine?: MidiMachine) {
     const m = new MidiMessage();
-    console.log("note on");
 
-    this.sendToAll(m.noteOn(channel, note));
+    if (machine) {
+      console.log("sending a note");
+
+      const op = this.activeOutPorts[machine.midiOutPort];
+      op.send(m.noteOn(channel, note)); //omitting the timestamp means send immediately.
+    } else {
+      this.sendToAll(m.noteOn(channel, note));
+    }
   }
 
   /**
@@ -272,10 +316,16 @@ class MidiManager {
    * @param channel The MIDI channel number.
    * @param note The note name including the octave eg C4.
    */
-  noteUp(channel: number, note: string) {
+  noteUp(channel: number, note: string, machine?: MidiMachine) {
     const m = new MidiMessage();
-    console.log("note off");
-    this.sendToAll(m.noteOff(channel, note));
+    if (machine) {
+      console.log("sending note off ");
+
+      const op = this.activeOutPorts[machine.midiOutPort];
+      op.send(m.noteOff(channel, note)); //omitting the timestamp means send immediately.
+    } else {
+      this.sendToAll(m.noteOff(channel, note));
+    }
   }
 
   /**

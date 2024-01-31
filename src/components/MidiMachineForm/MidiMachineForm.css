@@ -1,25 +1,25 @@
 .midi-machine-form {
-    margin-bottom: 2em;
-    border-left: 1.2em solid #443;
-    padding-left: 1em;
-    padding-bottom: .5em;
+  margin-bottom: 2em;
+  border-left: 1.2em solid var(--main-background-color);
+  padding-left: 1em;
+  padding-bottom: 0.5em;
 }
 
 .midi-machine-form .row:first .form-label {
-    margin-top: 0rem;
+  margin-top: 0rem;
 }
 .form-label {
-    margin-bottom: 0rem;
-    color: #aaa;
-    margin-top: 1rem;
+  margin-bottom: 0rem;
+  color: #aaa;
+  margin-top: 1rem;
 }
 
 .btn-primary {
-    background-color: #443;
-    border-color: #663;
+  background-color: var(--main-background-color);
+  border-color: var(--main-foreground-color);
 }
 
 .btn-danger {
-    background-color: #433;
-    border-color: #633;
+  background-color: var(--danger-background-color);
+  border-color: var(--danger-foreground-color);
 }

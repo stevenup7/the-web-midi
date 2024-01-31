@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MidiManagerContext } from "../../Context";
 import { Form } from "react-bootstrap";
 import MidiMachine from "../../classes/midi/MidiMachine";
@@ -19,24 +19,44 @@ function MidiConnectionPicker({ machine, onChange }: Props) {
   const [inPortList, setInPortList] = useState(initialInPorts);
   const [outPortList, setOutPortList] = useState(initialOutPorts);
 
-  MidiManager.addEventListener("midiSuccess", () => {
+  const onMidiConnection = () => {
     let managerInPorts: MidiPortList = {};
-    console.log("in on midi success");
+    let managerOutPorts: MidiPortList = {};
+
+    console.log("in on midi success in the midi connection picker");
     for (let port in MidiManager.inPorts) {
       managerInPorts[port] = MidiManager.inPorts[port].toString();
     }
-    setInPortList(managerInPorts);
 
-    let managerOutPorts: MidiPortList = {};
     for (let port in MidiManager.outPorts) {
       managerOutPorts[port] = MidiManager.outPorts[port].toString();
     }
-    setOutPortList(managerOutPorts);
-  });
+    console.log(inPortList, outPortList);
+
+    // TODO: fix this mess - stop the render loop the proper way
+    // testing equality to make sure they have changed before we update them
+    // without this we end up in a render loop
+    // would be nice to figure out why
+
+    if (JSON.stringify(inPortList) != JSON.stringify(managerInPorts)) {
+      setInPortList({ ...managerInPorts });
+    }
+    if (JSON.stringify(outPortList) != JSON.stringify(managerOutPorts)) {
+      setOutPortList({ ...managerOutPorts });
+    }
+  };
+  useEffect(() => {
+    console.log("in use effect");
+
+    MidiManager.addEventListener("midiSuccess", onMidiConnection);
+    // return a cleanup function to remove the event listener
+    return () => {
+      MidiManager.removeEventListener("midiSuccess", onMidiConnection);
+    };
+  }, [inPortList, outPortList]);
 
   const portsAsOptions = (portList: MidiPortList) => {
     let results = [];
-
     for (let port in portList) {
       results.push(
         <option value={port} key={port}>
@@ -44,7 +64,6 @@ function MidiConnectionPicker({ machine, onChange }: Props) {
         </option>
       );
     }
-
     return results;
   };
 

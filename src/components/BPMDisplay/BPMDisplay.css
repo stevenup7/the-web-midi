@@ -1,29 +1,27 @@
 .BPM-display {
-    margin-bottom: 3em;
+  margin-bottom: 3em;
 }
 .BPM-display div {
-    border: 1px solid #883;
-    background-color: #443;
-    color: #883;
-    width: 2em;
-    height: 2em;
-    margin: .2em;
-    text-align: center;
-    float: left;    
-    font-weight: 600;
-    vertical-align: middle;
-    line-height: 1.8em;
+  border: 1px solid var(--main-foreground-color);
+  background-color: var(--main-background-color);
+  color: white;
+  width: 2em;
+  height: 2em;
+  margin: 0.2em;
+  text-align: center;
+  float: left;
+  font-weight: 400;
+  vertical-align: middle;
+  line-height: 1.8em;
 }
 div .BPM-display div.active-beat {
-    border: 1px solid #383;
-    color: #6C6;
-    background-color: #343;
+  border: 1px solid var(--highlight-foreground-color);
+  color: var(--highlight-foreground-color);
+  background-color: var(---highlight-background-color);
 }
 
 .BPM-display div.BPM-quarter {
-    border: 1px solid #833;
-    color: #C66; 
-    background-color: #433 ;
+  border: 1px solid var(--danger-foreground-color);
+  color: white;
+  background-color: var(--danger-background-color);
 }
-
-

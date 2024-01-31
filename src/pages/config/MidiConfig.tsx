@@ -7,14 +7,15 @@ import ConfigManager from "../../classes/config/ConfigManager";
 import { MidiManagerContext } from "../../Context";
 import App from "../../App";
 function MidiConfig() {
-  let configManager: ConfigManager = new ConfigManager();
-  let initialMachines: MidiMachine[] = [];
+  let configManager: ConfigManager = new ConfigManager(); // config manager stores confg to locoal storage
+  let initialMachines: MidiMachine[] = []; // list of machines already in config
+  // get the midi manager so we know what ports are available
+  const midiManager = useContext(MidiManagerContext);
 
-  const MidiManager = useContext(MidiManagerContext);
-
-  MidiManager.addEventListener("midiSuccess", () => {
-    for (let port in MidiManager.inPorts) {
-      console.log(MidiManager.inPorts[port].toString());
+  midiManager.addEventListener("midiSuccess", () => {
+    // console.log("midi success event listener in MidiConfig component");
+    for (let port in midiManager.inPorts) {
+      console.log(midiManager.inPorts[port].toString());
     }
   });
 
@@ -24,8 +25,6 @@ function MidiConfig() {
   // load up the machines from config
   for (const m in initialMachineJSON) {
     let newMachineJSON = initialMachineJSON[m];
-    //console.log(newMachineJSON);
-    //console.log("adding machine from json config", m);
     initialMachines.push(MidiMachine.fromJSON(JSON.stringify(newMachineJSON)));
   }
   // initialise the machines from the list
@@ -33,6 +32,7 @@ function MidiConfig() {
 
   const saveMachine = (machine: MidiMachine) => {
     configManager.saveObject("machine." + machine.id, machine);
+    midiManager.reloadConfig();
   };
   const deleteMachine = (machine: MidiMachine) => {
     configManager.deleteObject("machine." + machine.id);
@@ -84,6 +84,8 @@ function MidiConfig() {
             </Button>
           </Col>
           <Col>
+            <h2>Connected Machines</h2>
+
             <h2>Other Config</h2>
             <p>This is where all the other configuration options will go</p>
             <p>[ ] Provide Midi Clock </p>
