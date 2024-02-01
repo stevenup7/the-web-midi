@@ -14,7 +14,7 @@ function MachinePicker({ onChange }: Props) {
   const [machine, setMachine] = useState<MidiMachine | undefined>(undefined);
   const [channel, setChannel] = useState<number | undefined>(undefined);
   const [channeloOpts, setchannelOpts] = useState<ReactElement[]>([
-    <option key="-1">loading...</option>,
+    <option key="-1">waiting for midi connection...</option>,
   ]);
 
   // when the midi manager is ready we can load the machines

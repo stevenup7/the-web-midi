@@ -8,6 +8,7 @@ import MidiMachine from "../../classes/midi/MidiMachine";
 import MidiManager from "../../classes/midi/MidiManager";
 import { MidiManagerContext } from "../../Context";
 import ShowHideSection from "../DisplayHelpers/ShowHideSection";
+import { Gear } from "react-bootstrap-icons";
 
 interface KeyboardProps {
   onDown: (channel: number, note: string, machine: MidiMachine) => void;
@@ -39,7 +40,7 @@ const Keyboard = ({ onDown, onUp }: KeyboardProps) => {
   return (
     <>
       <div className="keyboard-config">
-        <ShowHideSection title="settings">
+        <ShowHideSection title={<Gear />} align="right">
           <MachinePicker
             onChange={(machine: MidiMachine, channel: number) => {
               console.log("setting machine and channel", machine, channel);
