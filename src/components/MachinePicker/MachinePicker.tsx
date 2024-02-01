@@ -1,4 +1,4 @@
-import { ReactElement, useContext, useState } from "react";
+import { ReactElement, useContext, useEffect, useState } from "react";
 import MidiMachine from "../../classes/midi/MidiMachine";
 import { MidiManagerContext } from "../../Context";
 import { Form } from "react-bootstrap";
@@ -19,6 +19,10 @@ function MachinePicker({ onChange }: Props) {
 
   // when the midi manager is ready we can load the machines
   const [machinesLoaded, setMachinesLoaded] = useState(() => {
+    return false;
+  });
+
+  useEffect(() => {
     midiManager.addEventListener("midiSuccess", () => {
       // update the state
       setMachinesLoaded(true);
@@ -30,10 +34,7 @@ function MachinePicker({ onChange }: Props) {
       }
       // TOOD: handle no active machines case
     });
-
-    // set the machines loaded to false
-    return false;
-  });
+  }, [machinesLoaded]);
 
   // when we pick a machine from the select then we need to read off its
   // available channels and add them to the channel options for the
