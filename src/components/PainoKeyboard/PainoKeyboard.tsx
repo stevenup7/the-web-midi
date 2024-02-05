@@ -9,6 +9,7 @@ import MidiManager from "../../classes/midi/MidiManager";
 import { MidiManagerContext } from "../../Context";
 import ShowHideSection from "../DisplayHelpers/ShowHideSection";
 import { Gear } from "react-bootstrap-icons";
+import MidiMessage from "../../classes/midi/MidiMessage";
 
 interface KeyboardProps {
   onDown: (channel: number, note: string, machine: MidiMachine) => void;
@@ -62,6 +63,12 @@ const Keyboard = ({ onDown, onUp }: KeyboardProps) => {
               key={n}
               note={n}
               onUp={() => {
+                console.log(
+                  "sending note up",
+                  n,
+                  new MidiMessage().noteOff(1, n)
+                );
+
                 if (channel == undefined || machine == undefined) return;
                 onUp(channel, n, machine);
                 midiManager.noteUp(channel, n, machine);

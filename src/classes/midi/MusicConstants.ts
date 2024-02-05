@@ -1,3 +1,5 @@
+// https://inspiredacoustics.com/en/MIDI_note_numbers_and_center_frequencies
+
 export const NOTES = [
   "A",
   "A#",

@@ -61,7 +61,7 @@ function PainoKey({ note, onUp, onDown }: PainoKeyProps) {
       }}
     >
       <span onContextMenu={handleContextMenu} onSelect={handleContextMenu}>
-        {note.indexOf("C") == 0 && note.indexOf("#") == -1 ? note : note}
+        {note.indexOf("C") == 0 && note.indexOf("#") == -1 ? note : ""}
       </span>
     </div>
   );
