@@ -3,7 +3,7 @@ import MidiManager from "./classes/midi/MidiManager";
 
 const m = new MidiManager(
   () => {
-    console.log("midi manager connected");
+    // console.log("midi manager connected");
   },
   () => {
     throw new Error("midi manager disconnected");

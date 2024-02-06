@@ -43,7 +43,7 @@ class MidiManager {
     this.addEventListener("midiFail", failCallback);
 
     navigator.requestMIDIAccess().then((midiAccess) => {
-      console.log("midi access granted");
+      //console.log("midi access granted");
       this.onMIDISuccess(midiAccess);
     }, this.onMIDIFailure.bind(this));
   }
@@ -73,7 +73,7 @@ class MidiManager {
 
   reloadConfig() {
     const config = new ConfigManager();
-    console.log("reloading config");
+    // console.log("reloading config");
 
     // get the current config for midi machines from the config manager
     const initialMachineJSON = config.getConfig("machine");
@@ -127,7 +127,7 @@ class MidiManager {
 
       this.listenToPort(machine.midiInPort);
     } else {
-      console.log("port not in port list ", machine.midiInPort);
+      // console.log("port not in port list ", machine.midiInPort);
     }
     if (machine.midiOutPort in this.outPorts) {
       // TODO: this

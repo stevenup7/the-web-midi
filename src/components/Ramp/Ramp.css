@@ -1,0 +1,25 @@
+.ramp {
+  border: 0px solid var(--highlight-foreground-color);
+  height: 5em;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.ramp svg {
+  border: 1px solid var(--highlight-background-color);
+}
+
+.ramp-circle {
+  stroke: var(--main-foreground-color);
+  fill: var(--main-background-color);
+}
+
+.ramp-line {
+  stroke: var(--main-foreground-color);
+  fill: transparent;
+}
+
+.ramp-circle:hover {
+  stroke: var(--highlight-foreground-color);
+  fill: var(--highlight-background-color);
+}
