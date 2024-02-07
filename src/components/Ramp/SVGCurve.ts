@@ -6,9 +6,8 @@ type Point = { x: number; y: number };
 type ControlPoint = { p1: Point; p2: Point };
 
 function drawCurve(pointList: Point[]) {
-  console.log(pointList.length);
   if (pointList.length <= 1) {
-    throw new Error("Need at lest 3 points to draw a line");
+    throw new Error("Need at lest 2 points to draw a line");
   } else {
     let pathData = `M ${pointList[0].x} ${pointList[0].y}`;
 

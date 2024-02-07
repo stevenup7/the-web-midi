@@ -40,15 +40,8 @@ function Ramp() {
       return a.x - b.x;
     });
     let cp = drawCurve(cl);
-    // let path = `M  ${cl[0].x} ${cl[0].y} `;
 
-    // for (let i = 1; i < cl.length - 1; i++) {
-    //   path += ` L ${cl[i].x} ${cl[i].y} `;
-    // }
-    // path += ` L ${cl[cl.length - 1].x} ${cl[cl.length - 1].y} `;
-    // console.log("path", path, "len ", cl);
     if (lineRef.current === null) return;
-    // (lineRef.current as SVGAElement).setAttribute("d", path);
     (lineRef.current as SVGAElement).setAttribute("d", cp);
   };
 
@@ -113,6 +106,16 @@ function Ramp() {
                 xpos={circle.x}
                 ypos={circle.y}
                 radius={5}
+                onRightClick={(cx, cy) => {
+                  console.log("right click");
+                  // remove the circle
+                  const newCircleList = circleList.filter((c) => {
+                    console.log("c", c, "cx", cx, "cy", cy);
+                    return c.x !== cx && c.y !== cy;
+                  });
+                  setCircleList(newCircleList);
+                  drawPath(newCircleList);
+                }}
               ></RampCircle>
             );
           })}
