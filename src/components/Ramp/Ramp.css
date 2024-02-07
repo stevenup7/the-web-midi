@@ -16,6 +16,7 @@
 
 .ramp-line {
   stroke: var(--main-foreground-color);
+  /* stroke: yellow; */
   fill: transparent;
 }
 

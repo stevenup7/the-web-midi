@@ -16,9 +16,6 @@ const MARGIN = 10;
 const HEIGHT = 200;
 
 function Ramp() {
-  // (props: Props) {
-  // console.log("Ramp props", props);
-
   const [width, setWidth] = useState(0);
   const [circleList, setCircleList] = useState<CircleProps[]>([]);
 
@@ -77,6 +74,11 @@ function Ramp() {
 
     if (circleList.length === 0) {
       setCircleList([
+        ...circleList,
+        { x: MARGIN, y: HEIGHT - MARGIN * 2 },
+        { x: wrapperEl.offsetWidth - MARGIN, y: MARGIN },
+      ]);
+      drawPath([
         ...circleList,
         { x: MARGIN, y: HEIGHT - MARGIN * 2 },
         { x: wrapperEl.offsetWidth - MARGIN, y: MARGIN },
