@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Ramp.css";
 import RampCircle from "./RampCircle";
-import drawCurve from "./SVGCurve";
+import calculateCurve from "./SVGCurve";
 
 interface Props {
   type: string;
@@ -33,13 +33,13 @@ function Ramp() {
 
   const drawPath = (list?: CircleProps[]) => {
     if (list === undefined) {
-      console.log("list is state var");
       list = circleList;
     }
+    // sort the list by x coord
     const cl = list.sort((a: CircleProps, b: CircleProps) => {
       return a.x - b.x;
     });
-    let cp = drawCurve(cl);
+    let cp = calculateCurve(cl);
 
     if (lineRef.current === null) return;
     (lineRef.current as SVGAElement).setAttribute("d", cp);
