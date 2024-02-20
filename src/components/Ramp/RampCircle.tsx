@@ -1,5 +1,3 @@
-import { Button } from "react-bootstrap";
-
 interface RampCircleProps {
   xpos: number;
   ypos: number;

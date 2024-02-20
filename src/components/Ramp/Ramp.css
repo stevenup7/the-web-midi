@@ -20,6 +20,12 @@
   fill: transparent;
 }
 
+.ramp-line-debug {
+  stroke: var(--danger-foreground-color);
+  /* stroke: yellow; */
+  fill: transparent;
+}
+
 .ramp-circle:hover {
   stroke: var(--highlight-foreground-color);
   fill: var(--highlight-background-color);

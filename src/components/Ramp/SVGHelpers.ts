@@ -12,8 +12,8 @@ export class SSVGPoint {
   toString() {
     return `${this.x} ${this.y}`;
   }
-  s() {
-    return this.toString();
+  public get s() {
+    return `${this.x} ${this.y}`;
   }
 }
 

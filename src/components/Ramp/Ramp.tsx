@@ -22,6 +22,7 @@ function Ramp() {
   const elementRef = useRef<any>(null);
   const wrapperRef = useRef(null);
   const lineRef = useRef(null);
+  const cLineRef = useRef(null);
 
   const resizeObserver = new ResizeObserver((entries) => {
     for (const entry of entries) {
@@ -39,10 +40,17 @@ function Ramp() {
     const cl = list.sort((a: CircleProps, b: CircleProps) => {
       return a.x - b.x;
     });
-    let cp = calculateCurve(cl);
+    const [pathString, controlPoints] = calculateCurve(cl);
 
     if (lineRef.current === null) return;
-    (lineRef.current as SVGAElement).setAttribute("d", cp);
+    (lineRef.current as SVGAElement).setAttribute("d", pathString);
+    if (cLineRef.current === null) return;
+    if (controlPoints.length > 0) {
+      (cLineRef.current as SVGAElement).setAttribute(
+        "d",
+        `M ${controlPoints[0].p1.s} L ${controlPoints[0].p2.s} `
+      );
+    }
   };
 
   const svgClick = (x: number, y: number) => {
@@ -99,6 +107,11 @@ function Ramp() {
           }}
         >
           <path ref={lineRef} d="M 10 80 L 10 100" className="ramp-line" />
+          <path
+            ref={cLineRef}
+            d="M 10 80 L 10 100"
+            className="ramp-line-debug"
+          />
           {circleList.map((circle, index) => {
             return (
               <RampCircle
