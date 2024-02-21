@@ -122,23 +122,39 @@ class MidiManager {
    * @param machine The MIDI machine to add.
    */
   addMachine(machine: MidiMachine) {
-    if (machine.midiInPort in this.inPorts) {
-      console.log("listening to ", machine.midiInPort);
+    let port: MidiPort | undefined = undefined;
 
-      this.listenToPort(machine.midiInPort);
+    const findMachineOnPort = (portList: { [key: string]: MidiPort }) => {
+      port = undefined;
+      Object.keys(portList).forEach((key) => {
+        if (portList[key].name == machine.midiName) {
+          port = portList[key];
+        }
+      });
+      return port;
+    };
+    port = findMachineOnPort(this.inPorts);
+
+    if (port !== undefined) {
+      console.log("listening to ", machine.toString());
+      this.listenToPort((port as MidiPort).id, machine);
     } else {
       // console.log("port not in port list ", machine.midiInPort);
     }
-    if (machine.midiOutPort in this.outPorts) {
+    port = findMachineOnPort(this.outPorts);
+    if (port !== undefined) {
       // TODO: this
-      this.listenToPort(machine.midiOutPort);
+      this.listenToPort((port as MidiPort).id, machine);
     }
     this.midiMachines.push(machine);
   }
 
   getMachieOnPort(port: string): MidiMachine {
     let foundMachines = this.midiMachines.filter((machine) => {
-      if (machine.midiInPort == port || machine.midiOutPort == port) {
+      if (
+        (machine.midiInPort == port || machine.midiOutPort == port) &&
+        machine.connected
+      ) {
         return true;
       }
       return false;
@@ -154,7 +170,6 @@ class MidiManager {
    */
   getInputsAndOutputs(): void {
     if (!this.midiAccess) throw new Error("No Midi Connection");
-
     const addPort = (
       details: any,
       direction: MidiPortDirection,
@@ -332,12 +347,14 @@ class MidiManager {
    * Listens to a MIDI port.
    * @param portId The ID of the MIDI port to listen to.
    */
-  listenToPort(portId: string) {
+  listenToPort(portId: string, machine?: MidiMachine) {
     if (!this.midiAccess) {
       throw new Error("No Midi Connection");
     }
     let port = this.getPortById(portId);
-
+    if (machine) {
+      machine.connected = true;
+    }
     if (port.direction == "input") {
       const input = this.midiAccess.inputs.get(portId);
 

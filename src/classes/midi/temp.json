@@ -1,0 +1,60 @@
+{
+  "machine": {
+    "3": {
+      "id": 3,
+      "name": "Deluge",
+      "midiName": "Deluge",
+      "midiInPort": "input-0",
+      "midiOutPort": "output-1",
+      "channels": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+      "fxChannel": 15,
+      "channelAliases": {
+        "0": "Midi 1",
+        "1": "Midi 2",
+        "2": "Midi 3",
+        "3": "Midi 4",
+        "4": "Midi 5",
+        "5": "Midi 6",
+        "6": "Midi 7",
+        "7": "Midi 8",
+        "8": "Midi 9",
+        "9": "Midi 10",
+        "10": "Midi 11",
+        "11": "Midi 12",
+        "12": "Midi 13",
+        "13": "Midi 14",
+        "14": "Midi 15",
+        "15": "Midi 16"
+      }
+    },
+    "4": {
+      "id": 4,
+      "name": "Digitakt",
+      "midiName": "Elektron Digitakt",
+      "midiInPort": "input-0",
+      "midiOutPort": "output-1",
+      "channels": [0, 1, 2, 3, 4, 6, 5, 7],
+      "fxChannel": 15,
+      "channelAliases": {
+        "0": "Kick",
+        "1": "Snare",
+        "2": "Tom",
+        "3": "Clap",
+        "4": "Cowbell",
+        "5": "Closed Hat",
+        "6": "Open Hat",
+        "7": "Cymbal"
+      }
+    },
+    "5": {
+      "id": 5,
+      "name": "Digitone",
+      "midiName": "Elektron Digitone",
+      "midiInPort": "input-1",
+      "midiOutPort": "output-2",
+      "channels": [8, 9, 10, 11],
+      "fxChannel": 15,
+      "channelAliases": { "8": "T1", "9": "T2", "10": "T3", "11": "T4" }
+    }
+  }
+}

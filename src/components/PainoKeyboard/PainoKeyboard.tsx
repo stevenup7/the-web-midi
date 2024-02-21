@@ -44,7 +44,7 @@ const Keyboard = ({ onDown, onUp }: KeyboardProps) => {
         <ShowHideSection title={<Gear />} align="right">
           <MachinePicker
             onChange={(machine: MidiMachine, channel: number) => {
-              console.log("setting machine and channel", machine, channel);
+              // console.log("setting machine and channel", machine, channel);
               setMachine(machine);
               setChannel(channel);
             }}

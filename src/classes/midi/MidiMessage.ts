@@ -24,7 +24,6 @@ class MidiMessage {
 
   makeNote(type: number, channel: number, note: string): number[] {
     const noteInfo = this.parseNote(note);
-    debugger;
     if (noteInfo) {
       return [type | channel, C0 + noteInfo[0] + noteInfo[1] * 12, 127];
     } else {

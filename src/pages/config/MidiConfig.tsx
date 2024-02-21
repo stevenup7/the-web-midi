@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import ConfigManager from "../../classes/config/ConfigManager";
 import { MidiManagerContext } from "../../Context";
 import App from "../../App";
+
 function MidiConfig() {
   let configManager: ConfigManager = new ConfigManager(); // config manager stores confg to locoal storage
   let initialMachines: MidiMachine[] = []; // list of machines already in config
@@ -46,7 +47,7 @@ function MidiConfig() {
   };
   const addMachine = () => {
     machineList.push(
-      new MidiMachine(getFreeMachineId(), "New ", "", "", [], 15, {})
+      new MidiMachine(getFreeMachineId(), "New", "", "", "", [], 15, {})
     );
     setMachineList([...machineList]);
   };

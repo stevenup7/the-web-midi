@@ -30,7 +30,8 @@ function MachinePicker({ onChange }: Props) {
       // (this way we have a default machine to use)
       const outPortKeys = Object.keys(midiManager.outPorts);
       if (outPortKeys.length > 0) {
-        updateMachine(midiManager.outPorts[outPortKeys[0]].id);
+        let fistPortDetails = midiManager.outPorts[outPortKeys[0]];
+        updateMachine(fistPortDetails.id);
       }
       // TOOD: handle no active machines case
     });

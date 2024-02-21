@@ -7,6 +7,7 @@ describe("MidiMachine", () => {
     const midiMachine = new MidiMachine(
       0,
       "name",
+      "Digitakt",
       "midiInPort",
       "midiOutPort",
       [1, 2, 3],
@@ -20,6 +21,7 @@ describe("MidiMachine", () => {
     expect(midiMachine.id).toBe(0);
 
     expect(midiMachine.name).toBe("name");
+    expect(midiMachine.midiName).toBe("Digitakt");
     expect(midiMachine.midiInPort).toBe("midiInPort");
     expect(midiMachine.midiOutPort).toBe("midiOutPort");
     expect(midiMachine.channels).toEqual([1, 2, 3]);
@@ -35,6 +37,7 @@ describe("MidiMachine", () => {
     const midiMachine = new MidiMachine(
       0,
       "name",
+      "Digitakt",
       "midiInPort",
       "midiOutPort",
       [1, 2, 3],
@@ -51,6 +54,7 @@ describe("MidiMachine", () => {
     const deserialized = MidiMachine.fromJSON(serialized);
     expect(deserialized.id).toBe(0);
     expect(deserialized.name).toBe("name");
+    expect(deserialized.midiName).toBe("Digitakt");
     expect(deserialized.midiInPort).toBe("midiInPort");
     expect(deserialized.midiOutPort).toBe("midiOutPort");
     expect(deserialized.channels).toEqual([1, 2, 3]);
