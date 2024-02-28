@@ -5,9 +5,10 @@ import { Form } from "react-bootstrap";
 
 interface Props {
   onChange: (machine: MidiMachine, channel: number) => void;
+  includeChannel?: boolean;
 }
 
-function MachinePicker({ onChange }: Props) {
+function MachinePicker({ onChange, includeChannel }: Props) {
   // get a reference to the midi manager
   const midiManager = useContext(MidiManagerContext);
   // set up all the state stuff
@@ -101,17 +102,23 @@ function MachinePicker({ onChange }: Props) {
             })}
             ;
           </Form.Select>
-          <Form.Label>Channel:</Form.Label>
-          <Form.Select
-            aria-label={"Default select example"}
-            // defaultValue={machine.fxChannel}
-            onChange={(e: any) => {
-              updateChannel(e.target.value);
-            }}
-          >
-            {channeloOpts}
-          </Form.Select>
         </Form.Group>
+        {includeChannel === true ? (
+          <Form.Group controlId="midiChannel">
+            <Form.Label>Channel:</Form.Label>
+            <Form.Select
+              aria-label={"Default select example"}
+              // defaultValue={machine.fxChannel}
+              onChange={(e: any) => {
+                updateChannel(e.target.value);
+              }}
+            >
+              {channeloOpts}
+            </Form.Select>
+          </Form.Group>
+        ) : (
+          ""
+        )}
       </Form>
     </>
   );

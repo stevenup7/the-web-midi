@@ -1,0 +1,338 @@
+{
+    "Solo": {
+        "cc_msb": "93",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Global mute": {
+        "cc_msb": "94",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Pattern Mute": {
+        "cc_msb": "110",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Track level": {
+        "cc_msb": "95",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Trig note": {
+        "cc_msb": "3",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Trig velocity": {
+        "cc_msb": "4",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Trig length": {
+        "cc_msb": "5",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Filter trig": {
+        "cc_msb": "13",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "LFO trig": {
+        "cc_msb": "14",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Source tune": {
+        "cc_msb": "16",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Source play mode": {
+        "cc_msb": "17",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Source bit reduction": {
+        "cc_msb": "18",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Source sample slot": {
+        "cc_msb": "19",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Source start": {
+        "cc_msb": "20",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Source length": {
+        "cc_msb": "21",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Source loop position": {
+        "cc_msb": "22",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Source sample level": {
+        "cc_msb": "23",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Filter frequency": {
+        "cc_msb": "74",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Resonance": {
+        "cc_msb": "75",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Filter type": {
+        "cc_msb": "76",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Filter attack time": {
+        "cc_msb": "70",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Filter decay time": {
+        "cc_msb": "71",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Filter sustain level": {
+        "cc_msb": "72",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Filter release time": {
+        "cc_msb": "73",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Filter env depth": {
+        "cc_msb": "77",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Amp attack time": {
+        "cc_msb": "78",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Amp hold time": {
+        "cc_msb": "79",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Amp decay time": {
+        "cc_msb": "80",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Amp overdrive": {
+        "cc_msb": "81",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Amp delay send": {
+        "cc_msb": "82",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Amp reverb send": {
+        "cc_msb": "83",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Amp pan": {
+        "cc_msb": "10",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Amp volume": {
+        "cc_msb": "7",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "LFO speed": {
+        "cc_msb": "102",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "LFO multiplier": {
+        "cc_msb": "103",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "LFO fade in/out": {
+        "cc_msb": "104",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "LFO destination": {
+        "cc_msb": "105",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "LFO waveform": {
+        "cc_msb": "106",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "LFO start phase": {
+        "cc_msb": "107",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "LFO trig mode": {
+        "cc_msb": "108",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "LFO depth": {
+        "cc_msb": "109",
+        "cc_lsb": "118",
+        "min": "0",
+        "max": "127"
+    },
+    "FX delay time": {
+        "cc_msb": "85",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "FX pingpong": {
+        "cc_msb": "86",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "FX stereo width": {
+        "cc_msb": "87",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "FX feedback": {
+        "cc_msb": "88",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "FX highpass filter": {
+        "cc_msb": "89",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "FX lowpass filter": {
+        "cc_msb": "90",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "FX reverb send": {
+        "cc_msb": "91",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "FX mix volume": {
+        "cc_msb": "92",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "FX reverb predelay": {
+        "cc_msb": "24",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "FX reverb decay time": {
+        "cc_msb": "25",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "FX reverb shelving freq": {
+        "cc_msb": "2",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "FX reverb shelving gain": {
+        "cc_msb": "27",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "FX reverb highpass filter": {
+        "cc_msb": "28",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "FX reverb lowpass filter": {
+        "cc_msb": "29",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "FX reverb mix volume": {
+        "cc_msb": "31",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    }
+}

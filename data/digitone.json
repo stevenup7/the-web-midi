@@ -1,0 +1,656 @@
+{
+    "Mute": {
+        "cc_msb": "94",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Track level": {
+        "cc_msb": "95",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Root": {
+        "cc_msb": "3",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Velocity": {
+        "cc_msb": "4",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Length": {
+        "cc_msb": "5",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Filter trig": {
+        "cc_msb": "13",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "LFO trig": {
+        "cc_msb": "14",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Protamento time": {
+        "cc_msb": "15",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Portamento on": {
+        "cc_msb": "16",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Algorithm": {
+        "cc_msb": "90",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Ratio C": {
+        "cc_msb": "91",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Ratio A": {
+        "cc_msb": "92",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Ratio B": {
+        "cc_msb": "16",
+        "cc_lsb": "48",
+        "min": "0",
+        "max": "127"
+    },
+    "Harmonics": {
+        "cc_msb": "17",
+        "cc_lsb": "49",
+        "min": "0",
+        "max": "127"
+    },
+    "Detune": {
+        "cc_msb": "18",
+        "cc_lsb": "50",
+        "min": "0",
+        "max": "127"
+    },
+    "Feedback": {
+        "cc_msb": "18",
+        "cc_lsb": "50",
+        "min": "0",
+        "max": "127"
+    },
+    "Mix": {
+        "cc_msb": "20",
+        "cc_lsb": "52",
+        "min": "0",
+        "max": "127"
+    },
+    "Ratio C offset": {
+        "cc_msb": "",
+        "cc_lsb": "",
+        "min": "",
+        "max": ""
+    },
+    "Ratio A offset": {
+        "cc_msb": "",
+        "cc_lsb": "",
+        "min": "",
+        "max": ""
+    },
+    "Ratio B1 offset": {
+        "cc_msb": "",
+        "cc_lsb": "",
+        "min": "",
+        "max": ""
+    },
+    "Ratio B2 offset": {
+        "cc_msb": "",
+        "cc_lsb": "",
+        "min": "",
+        "max": ""
+    },
+    "A env attack": {
+        "cc_msb": "75",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "A env decay": {
+        "cc_msb": "76",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "A env end": {
+        "cc_msb": "77",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "A level": {
+        "cc_msb": "78",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "B env attack": {
+        "cc_msb": "79",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "B env decay": {
+        "cc_msb": "80",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "B env end": {
+        "cc_msb": "81",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "B level": {
+        "cc_msb": "82",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "A delay": {
+        "cc_msb": "83",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "A trig": {
+        "cc_msb": "84",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "A env reset": {
+        "cc_msb": "85",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "B delay": {
+        "cc_msb": "86",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "B trig": {
+        "cc_msb": "87",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "B env reset": {
+        "cc_msb": "88",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Phase reset": {
+        "cc_msb": "89",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Filter frequency": {
+        "cc_msb": "23",
+        "cc_lsb": "55",
+        "min": "0",
+        "max": "127"
+    },
+    "Resonance": {
+        "cc_msb": "24",
+        "cc_lsb": "56",
+        "min": "0",
+        "max": "127"
+    },
+    "Filter type": {
+        "cc_msb": "74",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Attack time": {
+        "cc_msb": "104",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Decay time": {
+        "cc_msb": "74",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Sustain level": {
+        "cc_msb": "106",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Release time": {
+        "cc_msb": "107",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Env depth": {
+        "cc_msb": "25",
+        "cc_lsb": "57",
+        "min": "0",
+        "max": "127"
+    },
+    "Env delay": {
+        "cc_msb": "43",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Base": {
+        "cc_msb": "26",
+        "cc_lsb": "58",
+        "min": "0",
+        "max": "127"
+    },
+    "Width": {
+        "cc_msb": "71",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Drive": {
+        "cc_msb": "9",
+        "cc_lsb": "41",
+        "min": "0",
+        "max": "127"
+    },
+    "Pan": {
+        "cc_msb": "10",
+        "cc_lsb": "42",
+        "min": "0",
+        "max": "127"
+    },
+    "Volume": {
+        "cc_msb": "7",
+        "cc_lsb": "39",
+        "min": "0",
+        "max": "127"
+    },
+    "Chorus send": {
+        "cc_msb": "12",
+        "cc_lsb": "44",
+        "min": "0",
+        "max": "127"
+    },
+    "Delay send": {
+        "cc_msb": "12",
+        "cc_lsb": "44",
+        "min": "0",
+        "max": "127"
+    },
+    "Reverb send": {
+        "cc_msb": "19",
+        "cc_lsb": "51",
+        "min": "0",
+        "max": "127"
+    },
+    "Amp env reset": {
+        "cc_msb": "102",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Speed LFO 1": {
+        "cc_msb": "28",
+        "cc_lsb": "60",
+        "min": "0",
+        "max": "127"
+    },
+    "Multiplier LFO 1": {
+        "cc_msb": "108",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Fade in/out LFO 1": {
+        "cc_msb": "109",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Destination LFO 1": {
+        "cc_msb": "110",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Waveform LFO 1": {
+        "cc_msb": "111",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Start phase LFO 1": {
+        "cc_msb": "112",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Trig mode LFO 1": {
+        "cc_msb": "113",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Depth LFO 1": {
+        "cc_msb": "29",
+        "cc_lsb": "61",
+        "min": "0",
+        "max": "127"
+    },
+    "Speed LFO 2": {
+        "cc_msb": "30",
+        "cc_lsb": "62",
+        "min": "0",
+        "max": "127"
+    },
+    "Multiplier LFO 2": {
+        "cc_msb": "114",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Fade in/out LFO 2": {
+        "cc_msb": "115",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Destination LFO 2": {
+        "cc_msb": "116",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Waveform LFO 2": {
+        "cc_msb": "117",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Start phase LFO 2": {
+        "cc_msb": "118",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Trig mode LFO 2": {
+        "cc_msb": "119",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Depth LFO 2": {
+        "cc_msb": "31",
+        "cc_lsb": "63",
+        "min": "0",
+        "max": "127"
+    },
+    "CC val 1": {
+        "cc_msb": "70",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "CC val 2": {
+        "cc_msb": "71",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "CC val 3": {
+        "cc_msb": "72",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "CC val 4": {
+        "cc_msb": "73",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "CC val 5": {
+        "cc_msb": "74",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "CC val 6": {
+        "cc_msb": "75",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "CC val 7": {
+        "cc_msb": "76",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "CC val 8": {
+        "cc_msb": "77",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Depth": {
+        "cc_msb": "3",
+        "cc_lsb": "35",
+        "min": "0",
+        "max": "127"
+    },
+    "Speed": {
+        "cc_msb": "9",
+        "cc_lsb": "41",
+        "min": "0",
+        "max": "127"
+    },
+    "High-pass": {
+        "cc_msb": "70",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Mix volume": {
+        "cc_msb": "23",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Delay time": {
+        "cc_msb": "15",
+        "cc_lsb": "47",
+        "min": "0",
+        "max": "127"
+    },
+    "Pingpong": {
+        "cc_msb": "16",
+        "cc_lsb": "48",
+        "min": "0",
+        "max": "127"
+    },
+    "Stereo width": {
+        "cc_msb": "17",
+        "cc_lsb": "49",
+        "min": "0",
+        "max": "127"
+    },
+    "Highpass filter": {
+        "cc_msb": "76",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Lowpass filter": {
+        "cc_msb": "77",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Predelay": {
+        "cc_msb": "21",
+        "cc_lsb": "53",
+        "min": "0",
+        "max": "127"
+    },
+    "Shelving freq": {
+        "cc_msb": "75",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Shelving gain": {
+        "cc_msb": "22",
+        "cc_lsb": "54",
+        "min": "0",
+        "max": "127"
+    },
+    "Master overdrive": {
+        "cc_msb": "29",
+        "cc_lsb": "61",
+        "min": "0",
+        "max": "127"
+    },
+    "Dual mono": {
+        "cc_msb": "83",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Input L volume": {
+        "cc_msb": "24",
+        "cc_lsb": "56",
+        "min": "0",
+        "max": "127"
+    },
+    "Input R volume": {
+        "cc_msb": "25",
+        "cc_lsb": "57",
+        "min": "0",
+        "max": "127"
+    },
+    "Pan L": {
+        "cc_msb": "78",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Pan R": {
+        "cc_msb": "79",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Chorus send L": {
+        "cc_msb": "26",
+        "cc_lsb": "58",
+        "min": "0",
+        "max": "127"
+    },
+    "Chorus send R": {
+        "cc_msb": "30",
+        "cc_lsb": "62",
+        "min": "0",
+        "max": "127"
+    },
+    "Delay send L": {
+        "cc_msb": "27",
+        "cc_lsb": "59",
+        "min": "0",
+        "max": "127"
+    },
+    "Delay send R": {
+        "cc_msb": "31",
+        "cc_lsb": "63",
+        "min": "0",
+        "max": "127"
+    },
+    "Reverb send L": {
+        "cc_msb": "28",
+        "cc_lsb": "60",
+        "min": "0",
+        "max": "127"
+    },
+    "Reverb send R": {
+        "cc_msb": "82",
+        "cc_lsb": "32",
+        "min": "0",
+        "max": "127"
+    },
+    "Chorus send L/R": {
+        "cc_msb": "26",
+        "cc_lsb": "58",
+        "min": "0",
+        "max": "127"
+    },
+    "Delay send L/R": {
+        "cc_msb": "27",
+        "cc_lsb": "59",
+        "min": "0",
+        "max": "127"
+    },
+    "Reverb send L/R": {
+        "cc_msb": "28",
+        "cc_lsb": "60",
+        "min": "0",
+        "max": "127"
+    },
+    "Pattern volume": {
+        "cc_msb": "95",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Pattern mute": {
+        "cc_msb": "",
+        "cc_lsb": "",
+        "min": "",
+        "max": ""
+    },
+    "Sustain": {
+        "cc_msb": "64",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    },
+    "Sostenuto": {
+        "cc_msb": "66",
+        "cc_lsb": "",
+        "min": "0",
+        "max": "127"
+    }
+}

@@ -44,6 +44,12 @@
         "5": "Closed Hat",
         "6": "Open Hat",
         "7": "Cymbal"
+      },
+      "fxCCs": {
+        "0": "Reverb",
+        "1": "Delay",
+        "2": "Filter",
+        "3": "LFO"
       }
     },
     "5": {

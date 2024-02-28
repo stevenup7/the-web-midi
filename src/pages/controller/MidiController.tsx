@@ -4,6 +4,7 @@ import BPMDisplay from "../../components/BPMDisplay/BPMDisplay";
 import PlayControls from "../../components/PlayControls/PlayControls";
 import App from "../../App";
 import Ramp from "../../components/Ramp/Ramp";
+import FXControls from "../../components/FXControls/FXControls";
 
 function MidiController() {
   return (
@@ -11,6 +12,12 @@ function MidiController() {
       <App></App>
 
       <Container fluid="md">
+        <Row>
+          <Col>
+            <FXControls></FXControls>
+          </Col>
+        </Row>
+        <hr />
         <Row>
           <Col>
             <BPMDisplay></BPMDisplay>
@@ -27,9 +34,10 @@ function MidiController() {
             <Keyboard onDown={() => {}} onUp={() => {}}></Keyboard>
           </Col>
         </Row>
+
         <Row>
           <Col>
-            <Ramp type="fish"></Ramp>
+            <Ramp></Ramp>
           </Col>
         </Row>
       </Container>
