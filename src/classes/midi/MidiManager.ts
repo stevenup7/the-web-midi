@@ -56,6 +56,7 @@ class MidiManager {
 
     this.getInputsAndOutputs();
     this.reloadConfig();
+    // call all the midi success handlers
     this.eventHandlers.midiSuccess.forEach((cb) => {
       cb();
     }, this);
@@ -136,6 +137,7 @@ class MidiManager {
     port = findMachineOnPort(this.inPorts);
 
     if (port !== undefined) {
+      machine.midiInPort = port.id;
       console.log("listening to ", machine.toString());
       this.listenToPort((port as MidiPort).id, machine);
     } else {
@@ -144,9 +146,25 @@ class MidiManager {
     port = findMachineOnPort(this.outPorts);
     if (port !== undefined) {
       // TODO: this
+      machine.midiOutPort = port.id;
+
       this.listenToPort((port as MidiPort).id, machine);
     }
     this.midiMachines.push(machine);
+  }
+
+  getMachineByName(midiName: string): MidiMachine {
+    let foundMachines = this.midiMachines.filter((machine) => {
+      if (machine.midiName == midiName) {
+        return true;
+      }
+      return false;
+    });
+    if (foundMachines.length > 0) {
+      return foundMachines[0];
+    } else {
+      throw new Error("No Machine with that name " + midiName);
+    }
   }
 
   getMachieOnPort(port: string): MidiMachine {
@@ -185,6 +203,7 @@ class MidiManager {
     };
 
     for (const entry of this.midiAccess.inputs) {
+      console.log("Adding new inPort ", entry[1].name);
       addPort(entry[1], "input", this.inPorts);
     }
 

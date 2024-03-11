@@ -12,12 +12,12 @@ function MidiController() {
       <App></App>
 
       <Container fluid="md">
-        <Row>
+        {/* <Row>
           <Col>
             <FXControls></FXControls>
           </Col>
         </Row>
-        <hr />
+        <hr /> */}
         <Row>
           <Col>
             <BPMDisplay></BPMDisplay>
@@ -35,11 +35,11 @@ function MidiController() {
           </Col>
         </Row>
 
-        <Row>
+        {/* <Row>
           <Col>
             <Ramp></Ramp>
           </Col>
-        </Row>
+        </Row> */}
       </Container>
     </>
   );

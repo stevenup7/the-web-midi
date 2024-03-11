@@ -32,7 +32,8 @@ function MachinePicker({ onChange, includeChannel }: Props) {
       const outPortKeys = Object.keys(midiManager.outPorts);
       if (outPortKeys.length > 0) {
         let fistPortDetails = midiManager.outPorts[outPortKeys[0]];
-        updateMachine(fistPortDetails.id);
+        // debugger;
+        updateMachine(fistPortDetails.name);
       }
       // TOOD: handle no active machines case
     });
@@ -41,25 +42,26 @@ function MachinePicker({ onChange, includeChannel }: Props) {
   // when we pick a machine from the select then we need to read off its
   // available channels and add them to the channel options for the
   // channel selector
-  const updateMachine = (portid: string) => {
+  const updateMachine = (machineName: string) => {
     let machineChannels: ReactElement[] = [];
-    let machineOnPort = midiManager.getMachieOnPort(portid);
-
+    let foundMachine = midiManager.getMachineByName(machineName);
+    //let machineOnPort = midiManager.getMachieOnPort(portid);
+    console.log("machineOnPort", foundMachine.name);
     // udate the state variable for the machine
-    setMachine(machineOnPort);
+    setMachine(foundMachine);
     // update the state variable for the channel to the first available channel
     let firstChannelNumber = parseInt(
-      Object.keys(machineOnPort.channelAliases)[0],
+      Object.keys(foundMachine.channelAliases)[0],
       10
     );
     setChannel(firstChannelNumber);
-    updateChannel(firstChannelNumber, machineOnPort);
-    // keep using the localVariable becuse this is async
-    if (machineOnPort !== undefined) {
-      for (let alias in machineOnPort.channelAliases) {
+    updateChannel(firstChannelNumber, foundMachine);
+    // keep using the local variable becuse this is async
+    if (foundMachine !== undefined) {
+      for (let alias in foundMachine.channelAliases) {
         machineChannels.push(
           <option value={alias} key={alias}>
-            {machineOnPort.channelAliases[alias]}
+            {foundMachine.channelAliases[alias]}
           </option>
         );
       }
@@ -90,7 +92,8 @@ function MachinePicker({ onChange, includeChannel }: Props) {
             aria-label={"Default select example"}
             // defaultValue={machine.fxChannel}
             onChange={(e: any) => {
-              updateMachine(e.target.value);
+              let portId = e.target.value;
+              updateMachine(midiManager.outPorts[portId].name);
             }}
           >
             {Object.keys(midiManager.outPorts).map((portid) => {

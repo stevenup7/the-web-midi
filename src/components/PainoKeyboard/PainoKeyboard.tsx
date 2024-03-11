@@ -48,6 +48,7 @@ const Keyboard = ({ onDown, onUp }: KeyboardProps) => {
               setMachine(machine);
               setChannel(channel);
             }}
+            includeChannel={true}
           ></MachinePicker>
         </ShowHideSection>
       </div>

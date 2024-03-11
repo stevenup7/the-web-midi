@@ -32,9 +32,9 @@ class MidiMachine {
 
   toString(): string {
     if (this.connected) {
-      return this.name + " " + this.id + " connected";
+      return this.name + " (id:" + this.id + ") connected";
     }
-    return this.name + " " + this.id;
+    return this.name + " (id:" + this.id + ")";
   }
 
   toJSON(indent?: number): string {
